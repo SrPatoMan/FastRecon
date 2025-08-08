@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-func HttpClient(proxy *string) *http.Client {
+func HttpClient(proxy *string, redirect *bool) *http.Client {
 
 	transport := &http.Transport{
 		MaxIdleConns:          200,
@@ -28,6 +28,12 @@ func HttpClient(proxy *string) *http.Client {
 
 	client := &http.Client{
 		Transport: transport,
+	}
+
+	if !*redirect {
+		client.CheckRedirect = func(req *http.Request, via []*http.Request) error {
+			return http.ErrUseLastResponse
+		}
 	}
 
 	return client
