@@ -15,6 +15,7 @@ func main() {
 	proxy := flag.String("proxy", "http://127.0.0.1:8080", "Proxy address")
 	concurrent := flag.Int("t", 20, "Amount of threads")
 	followRedirect := flag.Bool("redirect", false, "Follow the redirects and logs the last request")
+	path := flag.String("p", "", "URL Path. Example: -p .htaccess | -p directory1/directory2/endpoint.php")
 	flag.Parse()
 
 	if *targetFile == "" {
@@ -43,7 +44,7 @@ func main() {
 
 		ch <- struct{}{}
 		wg.Add(1)
-		go ProxyReq(subdomain, client, ch, &wg)
+		go ProxyReq(subdomain, client, ch, &wg, path)
 	}
 
 	wg.Wait()
