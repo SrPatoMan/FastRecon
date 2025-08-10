@@ -2,6 +2,8 @@
 Fastrecon is a go tool that allows you to view the response from a list of subdomains through your proxy. This lets you to see any suspicious or notable difference between subdomains in an easy way.
 
 
+<img width="1881" height="889" alt="image" src="https://github.com/user-attachments/assets/77ed8f92-cc4a-4b9a-89f9-5506c5bce237" />
+
 
 ## Installation
 
