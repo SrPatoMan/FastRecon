@@ -8,6 +8,7 @@ Fastrecon is a go tool that allows you to view the response from a list of subdo
 ## Installation
 
 <br>
+
 ### ** NOTE: You need to install your Proxy's certificate in your OS's certificate store **   
 
 <br>
